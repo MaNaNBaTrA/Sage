@@ -5,13 +5,12 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 
-// Main App Component
+
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Listen for auth state changes
     onAuthStateChangedHandler((user) => {
       setUser(user);
       setLoading(false);

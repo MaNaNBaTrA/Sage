@@ -1,19 +1,17 @@
-// firebase.js
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,  // Changed this
+  signInWithPopup,
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  getRedirectResult, // Not needed anymore for popup
   setPersistence,
   browserLocalPersistence,
 } from "firebase/auth";
 
-// Firebase configuration
+
 const firebaseConfig = {
   apiKey: "AIzaSyAO_8jIrq7D_hTXJ2MpphAI5Iq9y5SE3QE",
   authDomain: "sage-8bbc2.firebaseapp.com",
@@ -24,17 +22,17 @@ const firebaseConfig = {
   measurementId: "G-RQ07EX2Q5H",
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-// Set auth persistence to local for longer sessions
+
 setPersistence(auth, browserLocalPersistence).catch((error) => {
   console.error("Error setting auth persistence:", error);
 });
 
-// Sign up with email and password
+
 export const signUpWithEmail = async (email, password) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -45,7 +43,7 @@ export const signUpWithEmail = async (email, password) => {
   }
 };
 
-// Sign in with email and password
+
 export const signInWithEmail = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -56,7 +54,7 @@ export const signInWithEmail = async (email, password) => {
   }
 };
 
-// Log out
+
 export const logout = async () => {
   try {
     await signOut(auth);
@@ -65,7 +63,7 @@ export const logout = async () => {
   }
 };
 
-// Login with Google using popup (new)
+
 export const loginWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
@@ -77,7 +75,7 @@ export const loginWithGoogle = async () => {
   }
 };
 
-// Listen to authentication state changes
+
 export const onAuthStateChangedHandler = (callback) => {
   return onAuthStateChanged(auth, callback);
 };

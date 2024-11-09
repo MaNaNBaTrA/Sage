@@ -1,5 +1,3 @@
-// src/components/SignUp.js
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUpWithEmail } from "../firebase";
@@ -13,7 +11,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       await signUpWithEmail(email, password);
-      navigate("/login"); // Redirect to login page after successful signup
+      navigate("/login"); 
     } catch (error) {
       console.error("Signup failed:", error);
     }
