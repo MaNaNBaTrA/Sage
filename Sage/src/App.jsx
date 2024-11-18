@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { onAuthStateChangedHandler } from "./firebase"; 
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
+import Loader from "./Loader/Loader";
 
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; 
+    return <Loader/>;
   }
 
   return (
