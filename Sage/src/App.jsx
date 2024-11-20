@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"; 
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { onAuthStateChangedHandler } from "./firebase"; 
+import { onAuthStateChangedHandler } from "./firebase";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
@@ -20,13 +20,13 @@ function App() {
   }, []);
 
   if (loading) {
-    return <Loader/>;
+    return <Loader />;
   }
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/home" /> : <Login />} />
+        <Route path="/" element={user ? <Navigate to="/home" /> : <Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={user ? <Home /> : <Navigate to="/" />} />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />

@@ -13,6 +13,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
+
   useEffect(() => {
     const unsubscribe = onAuthStateChangedHandler((user) => {
       console.log("Auth state changed. User: ", user);
@@ -26,6 +27,7 @@ const Login = () => {
 
     return () => unsubscribe();
   }, [navigate]);
+
 
   const handleEmailLogin = async (e) => {
     e.preventDefault();
@@ -45,11 +47,15 @@ const Login = () => {
         case "auth/invalid-email":
           setErrorMessage("The email address is not valid. Please check again.");
           break;
+        case "auth/invalid-credential":
+          setErrorMessage("Invalid credential. Please check your input.");
+          break;
         default:
-          setErrorMessage("An error occurred. Please try again.");
+          setErrorMessage("An unknown error occurred. Please try again.");
       }
     }
   };
+
 
   const handleGoogleLogin = async () => {
     try {
@@ -63,8 +69,8 @@ const Login = () => {
 
   return (
     <>
-      <div className="login min-h-screen w-full flex items-center justify-center ">
-        <div className="container w-5/6 flex overflow-hidden justify-between  rounded-xl shadow-lg">
+      <div className="login min-h-screen w-full flex items-center justify-center">
+        <div className="container w-5/6 flex overflow-hidden justify-between rounded-xl shadow-lg">
           <div className="lsection flex w-1/2 flex-col items-center p-8 gap-4">
             <div className="flex items-center flex-col gap-4 w-3/4">
               <div className="font-bold text-6xl font-roboto">Welcome back!</div>
@@ -95,7 +101,7 @@ const Login = () => {
                 </div>
               </div>
               {errorMessage && (
-                <div className="text-red-500 text-sm mt-2">{errorMessage}</div> 
+                <div className="text-red-500 text-sm mt-2">{errorMessage}</div>
               )}
               <button className="flex bg-black text-white rounded-3xl items-center justify-center p-2 font-roboto mt-3" type="submit">
                 Log In
@@ -113,6 +119,7 @@ const Login = () => {
             <div className="img">
               <img src={IMG} alt="Work" />
             </div>
+            
           </div>
         </div>
       </div>

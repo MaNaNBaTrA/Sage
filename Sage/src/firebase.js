@@ -22,15 +22,18 @@ const firebaseConfig = {
   measurementId: "G-RQ07EX2Q5H",
 };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 
-setPersistence(auth, browserLocalPersistence).catch((error) => {
-  console.error("Error setting auth persistence:", error);
-});
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log("Auth persistence set to local");
+  })
+  .catch((error) => {
+    console.error("Error setting auth persistence:", error);
+  });
 
 
 export const signUpWithEmail = async (email, password) => {
@@ -38,7 +41,7 @@ export const signUpWithEmail = async (email, password) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     return userCredential.user;
   } catch (error) {
-    console.error("Error signing up with email:", error);
+    console.error("Error signing up with email:", error.message);
     throw error;
   }
 };
@@ -47,19 +50,29 @@ export const signUpWithEmail = async (email, password) => {
 export const signInWithEmail = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log("User signed in successfully:", userCredential.user);
     return userCredential.user;
   } catch (error) {
-    console.error("Error signing in with email:", error);
+    console.error("Error signing in with email:");
+    console.error("Error Code:", error.code); 
+    console.error("Error Message:", error.message); 
+    
+    if (error.customData) {
+      console.error("Custom Data:", error.customData); 
+    }
+
     throw error;
   }
 };
 
 
+
 export const logout = async () => {
   try {
     await signOut(auth);
+    console.log("User logged out");
   } catch (error) {
-    console.error("Error signing out:", error);
+    console.error("Error signing out:", error.message);
   }
 };
 
@@ -70,7 +83,7 @@ export const loginWithGoogle = async () => {
     console.log("User signed in with Google:", result.user);
     return result.user;
   } catch (error) {
-    console.error("Error signing in with Google:", error);
+    console.error("Error signing in with Google:", error.message);
     throw error;
   }
 };
