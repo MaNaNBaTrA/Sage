@@ -1,28 +1,47 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import "../index.css";
 
 const Marquee = () => {
+  const quotes = [
+    "Collaboration over contracts, projects over positions.",
+    "Projects today, opportunities tomorrow.",
+    "Your next project is just a collaboration away.",
+    "Work that fits your passion, projects that fuel your growth.",
+    "Collaboration is the currency of the future."
+  ];
+
+  const repeatedQuotes = Array(10).fill(quotes).flat();
+  
+  const marqueeRef = useRef(null);
+
+  const handleScroll = () => {
+    const marqueeWidth = marqueeRef.current.offsetWidth;
+    const scrollPosition = marqueeRef.current.scrollLeft;
+    if (scrollPosition >= marqueeWidth - 1) {
+      marqueeRef.current.scrollLeft = 0;
+    }
+  };
+
+  useEffect(() => {
+    const marquee = marqueeRef.current;
+    marquee.addEventListener('scroll', handleScroll);
+    return () => {
+      marquee.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="w-full h-36 overflow-hidden flex justify-center items-center">
-      <div className="relative w-full h-32 flex justify-center items-center transform rotate-3 origin-center">
-        <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 bg-black h-1/3 flex">
-          <div className="whitespace-nowrap animate-marquee-horizontal text-white text-lg px-4 py-2">
-            Start Now! Start collaborating and innovate today.
-          </div>
-          <div className="whitespace-nowrap animate-marquee-horizontal text-white text-lg px-4 py-2">
-            Start Now! Start collaborating and innovate today.
-          </div>
-          <div className="whitespace-nowrap animate-marquee-horizontal text-white text-lg px-4 py-2">
-            Start Now! Start collaborating and innovate today.
-          </div>
-          <div className="whitespace-nowrap animate-marquee-horizontal text-white text-lg px-4 py-2">
-            Start Now! Start collaborating and innovate today.
-          </div>
-          <div className="whitespace-nowrap animate-marquee-horizontal text-white text-lg px-4 py-2">
-            Start Now! Start collaborating and innovate today.
-          </div>
-          <div className="whitespace-nowrap animate-marquee-horizontal text-white text-lg px-4 py-2">
-            Start Now! Start collaborating and innovate today.
-          </div>
+    <div className="bg-black w-[110vw] h-16 my-20 rotate-3 translate-x-[-5vw] flex items-center justify-center overflow-hidden">
+      <div className="w-[100vw] z-10 h-14">
+        <div 
+          ref={marqueeRef}
+          className="flex text-white text-nowrap gap-20 h-full w-max items-center justify-center text-lg font-inter animate-marquee"
+        >
+          {repeatedQuotes.map((quote, index) => (
+            <span key={index} className="text-white whitespace-nowrap text-lg font-inter">
+              {quote}
+            </span>
+          ))}
         </div>
       </div>
     </div>

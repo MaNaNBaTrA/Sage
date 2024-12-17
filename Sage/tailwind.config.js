@@ -16,19 +16,6 @@ export default {
         inter: ['Inter', 'sans-serif'],
         engagement: ['Engagement', 'sans-serif'],
       },
-      animation: {
-        'marquee-horizontal': 'marquee-horizontal 10s linear infinite',
-      },
-      keyframes: {
-        'marquee-horizontal': {
-          '0%': {
-            transform: 'translateX(100%)',
-          },
-          '100%': {
-            transform: 'translateX(-100%)',
-          },
-        },
-      },
     },
   },
   plugins: [],

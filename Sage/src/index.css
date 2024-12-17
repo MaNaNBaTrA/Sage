@@ -18,3 +18,22 @@
 body {
     overflow: scroll;
 }
+
+@layer utilities {
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  
+    .animate-marquee {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: marquee 160s linear infinite;
+    }
+  }
+   
+  
