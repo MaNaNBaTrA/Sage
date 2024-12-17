@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { onAuthStateChangedHandler } from "./firebase";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import Home from "./components/Home";
+import Home from "./Home";
 import Loader from "./Loader/Loader";
 
 
@@ -26,7 +26,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/home" /> : <Home />} />
+        <Route path="/" element={user ? <Navigate to="/home" /> : <Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={user ? <Home /> : <Navigate to="/" />} />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
