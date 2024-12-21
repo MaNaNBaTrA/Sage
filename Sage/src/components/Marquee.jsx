@@ -6,8 +6,8 @@ const Marquee = () => {
     "Collaboration over contracts, projects over positions.",
     "Projects today, opportunities tomorrow.",
     "Your next project is just a collaboration away.",
-    "Work that fits your passion, projects that fuel your growth.",
-    "Collaboration is the currency of the future."
+    "Collaboration is the currency of the future.",
+    "Work that fits your passion, projects that fuel your growth."
   ];
 
   const repeatedQuotes = Array(10).fill(quotes).flat();
@@ -31,14 +31,14 @@ const Marquee = () => {
   }, []);
 
   return (
-    <div className="bg-black w-[110vw] h-16 my-20 rotate-3 translate-x-[-5vw] flex items-center justify-center overflow-hidden">
+    <div className="bg-black w-[110vw] h-16 my-20 rotate-3 translate-x-[-5vw] flex items-center justify-center overflow-hidden mb-32">
       <div className="w-[100vw] z-10 h-14">
         <div 
           ref={marqueeRef}
           className="flex text-white text-nowrap gap-20 h-full w-max items-center justify-center text-lg font-inter animate-marquee"
         >
           {repeatedQuotes.map((quote, index) => (
-            <span key={index} className="text-white whitespace-nowrap text-lg font-inter">
+            <span key={index} className="text-white whitespace-nowrap text-lg font-inter font-medium">
               {quote}
             </span>
           ))}

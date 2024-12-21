@@ -17,7 +17,7 @@ const Header = () => {
                         <img src={ArrowBend} alt="" className='w-4' />
                     </div> 
                 </div>
-                <div>
+                <div className='flex flex-col gap-2'>
                     <div className="w-full h-[2px] bg-gray-400 my-4"></div>
                     <div className='font-inter '>
                         <div>Find Your Project Tribe | Fuel Your Projects with Top Talent</div>

@@ -4,6 +4,7 @@ import { logout } from "./firebase";
 import Navbar from "./components/Navbar"
 import Header from "./components/Header"
 import Marquee from "./components/Marquee";
+import Role from "./components/Role";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,7 +19,8 @@ const Home = () => {
       <Navbar/>
       <Header/>
       <Marquee/>
-      <Header/>
+      <Role/>
+      {/* <Header/> */}
       {/* <button onClick={handleLogout}>Log Out</button> */}
     </div>
   );
