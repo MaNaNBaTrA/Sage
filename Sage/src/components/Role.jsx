@@ -11,10 +11,10 @@ const Role = () => {
                     <div className=' font-engagement text-6xl py-2'>Find exciting projects to work on.</div>
                     <div className='font-inter px-2'>Browse curated opportunities to collaborate and make a meaningful impact with your skills.</div>
                 </div>
-                {/* <div className='flex gap-4 w-14 self-center absolute right-36 top-6'>
+                <div className='flex gap-4 w-14 self-center absolute right-36 top-6'>
                     <img src={AL} alt="" className='cursor-pointer'/>
                     <img src={AR} alt="" className='cursor-pointer'/>
-                </div> */}
+                </div>
             </div>
             <div className='w-full'> 
                 <div></div>
@@ -23,4 +23,4 @@ const Role = () => {
     )
 }
 
-export default Role
+export default Role;
