@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IMG from "../assets/Work.jpg";
+import IMG from "../assets/Img/Work.jpg";
 import { useNavigate } from "react-router-dom";
 import { signUpWithEmail, loginWithGoogle } from "../firebase";
 

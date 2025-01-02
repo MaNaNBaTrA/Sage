@@ -1,6 +1,6 @@
 import React from 'react'
-import HeaderImg from '../assets/Header.svg'
-import ArrowBend from '../assets/Arrowbend.svg'
+import HeaderImg from '../assets/Svg/Header.svg'
+import ArrowBend from '../assets/Svg/Arrowbend.svg'
 
 const Header = () => {
     return (
