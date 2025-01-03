@@ -2,4 +2,4 @@ Backend/.env
 Backend/node_modules
 Sage/node_modules
 Sage/.env
-Sage/src/firebase.jsgit p
+Sage/src/firebase.js
