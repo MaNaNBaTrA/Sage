@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar"
 import Header from "./components/Header"
 import Marquee from "./components/Marquee";
 import Role from "./components/Role";
+import Footer from "./components/Footer";
+import Trademark from "./components/Trademark";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -22,6 +24,8 @@ const Home = () => {
       <Role/>
       {/* <Header/> */}
       {/* <button onClick={handleLogout}>Log Out</button> */}
+      <Footer/>
+      <Trademark/>
     </div>
   );
 };
