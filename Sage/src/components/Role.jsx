@@ -30,7 +30,7 @@ const Role = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <div>TO write tags </div> */}
+                    {/* <div>To write tags </div> */}
                     <div className='border-[1px] border-gray-400 flex py-2 px-3 rounded-xl font-inter justify-between items-center'>
                         <div className='font-medium w-1/3'> Senior Software Engineer</div>
                         <div className='cursor-pointer'>• Responsibilities</div>
@@ -61,11 +61,14 @@ const Role = () => {
                         <div className='cursor-pointer'>• Skills</div>
                         <div className='cursor-pointer bg-black rounded-xl text-white py-1 px-2'>Interested</div>
                     </div>
-                    <div className='self-end flex font-inter text-sm font-medium gap-4 items-center'>
-                        <div className=''> POSTED 1 DAY AGO</div>
-                        <div className='flex items-center gap-2 border-2 rounded-lg border-neutral-700 p-2 justify-center'>
-                            <img src={Report} alt="Report" className='w-3' />
-                            <div>REPORT</div>
+                    <div className='w-full flex justify-between items-center'>
+                        <div className='flex items-center gap-2 border-2 rounded-lg border-neutral-700 py-2 px-3 justify-center'>Save</div>
+                        <div className=' flex font-inter text-sm font-medium gap-4 items-center'>
+                            <div className=''> POSTED 1 DAY AGO</div>
+                            <div className='flex items-center gap-2 border-2 rounded-lg border-neutral-700 p-2 justify-center'>
+                                <img src={Report} alt="Report" className='w-3' />
+                                <div>REPORT</div>
+                            </div>
                         </div>
                     </div>
                 </div>
